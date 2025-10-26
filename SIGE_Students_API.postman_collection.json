@@ -1,0 +1,92 @@
+{
+  "info": {
+    "name": "SIGE Students API",
+    "_postman_id": "b9a7cdb8-1234-4e7a-bd3b-fake123456789",
+    "description": "Colección para probar operaciones CRUD de la tabla 'students' en el backend Flask del proyecto SIGE.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET - Obtener todos los estudiantes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "GET - Obtener estudiante por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/students/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students", "1"]
+        }
+      }
+    },
+    {
+      "name": "POST - Crear nuevo estudiante",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"first_name\": \"María\",\n    \"last_name\": \"Fernández\",\n    \"grade_level\": \"4°\",\n    \"group_name\": \"A\",\n    \"birth_date\": \"2016-11-10\",\n    \"parent_id\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "PUT - Actualizar estudiante",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"first_name\": \"María Elena\",\n    \"last_name\": \"Fernández\",\n    \"grade_level\": \"4°\",\n    \"group_name\": \"B\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/students/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students", "1"]
+        }
+      }
+    },
+    {
+      "name": "DELETE - Eliminar estudiante",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/students/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students", "1"]
+        }
+      }
+    }
+  ]
+}

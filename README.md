@@ -3,7 +3,7 @@
 ### Autor: Sebastián Ezequiel Coronado Rivera  
 ### Fecha: Octubre 2025  
 ### Video: https://youtu.be/Z9B-kgTzG7I?si=rs07bHvR6lecbruP
-### Repo: 
+### Repo: https://github.com/sezcoronado/SIGE_Backend_Student
 ---
 
 ## Descripción General

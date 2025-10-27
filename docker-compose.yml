@@ -1,0 +1,44 @@
+#version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: sige_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: sige
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./SIGE_students.sql:/docker-entrypoint-initdb.d/SIGE_students.sql
+    networks:
+      - sige_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d sige"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: .
+    container_name: sige_backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: sige
+      DB_USER: postgres
+      DB_PASSWORD: 1234
+    ports:
+      - "8000:8000"
+    networks:
+      - sige_network
+
+networks:
+  sige_network:
+    driver: bridge

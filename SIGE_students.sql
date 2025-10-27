@@ -6,7 +6,7 @@
 -- Fecha: Octubre 2025
 -- ===========================================
 
-CREATE DATABASE sige;
+--CREATE DATABASE sige;
 \c sige;
 
 CREATE TABLE parents (
